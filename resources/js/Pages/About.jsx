@@ -34,7 +34,7 @@ export default function About() {
             </section>
 
             {/* Story */}
-            <section className="py-24 px-6 bg-white relative">
+            <section className="py-24 px-6 bg-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-sm blur-3xl opacity-60 -translate-y-1/2 translate-x-1/2"></div>
                 <motion.div 
                     initial={{ opacity: 0, y: 40 }}
