@@ -1,1 +1,0 @@
-import{t as e}from"./app-DW8QEBGX.js";var t=e();function n(e){return(0,t.jsx)(`img`,{...e,src:`/navyralogo.webp`,alt:`Navyra Studio Logo`,style:{objectFit:`contain`}})}export{n as t};
