@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Admin User',
-            'email' => 'admin@navyrastudio.smartsense.my.id',
-            'password' => bcrypt('password')
+            'email' => 'admin@navyrastudio.com',
+            'password' => bcrypt('navyra12')
         ]);
 
         $this->call([
