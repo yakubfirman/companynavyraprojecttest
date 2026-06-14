@@ -83,13 +83,13 @@ export default function Home({ products, events }) {
             {/* Trusted By */}
             <section className="py-12 border-b border-gray-100 bg-white">
                 <div className="max-w-7xl mx-auto px-6 text-center">
-                    <p className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">Trusted by innovative companies</p>
-                    <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                        <span className="text-2xl font-black text-gray-800">TechIndo.</span>
-                        <span className="text-2xl font-bold text-gray-800">Global<span className="text-blue-600">Net</span></span>
-                        <span className="text-2xl font-black text-gray-800 tracking-tighter">NEXA</span>
-                        <span className="text-2xl font-semibold text-gray-800">Smart<span className="font-light">Sense</span></span>
-                        <span className="text-2xl font-black text-gray-800 italic">Vortex</span>
+                    <p className="text-sm font-semibold text-gray-600 uppercase tracking-widest mb-8">Trusted by innovative companies</p>
+                    <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 grayscale hover:grayscale-0 transition-all duration-500 text-gray-600 hover:text-gray-900">
+                        <span className="text-2xl font-black">TechIndo.</span>
+                        <span className="text-2xl font-bold">Global<span className="text-blue-700">Net</span></span>
+                        <span className="text-2xl font-black tracking-tighter">NEXA</span>
+                        <span className="text-2xl font-semibold">Smart<span className="font-light">Sense</span></span>
+                        <span className="text-2xl font-black italic">Vortex</span>
                     </div>
                 </div>
             </section>
@@ -161,7 +161,7 @@ export default function Home({ products, events }) {
                                     <FontAwesomeIcon icon={faCheckCircle} className="text-xl" />
                                 </div>
                                 <div>
-                                    <h4 className="text-lg font-bold text-gray-900 mb-1">Agile Methodology</h4>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-1">Agile Methodology</h3>
                                     <p className="text-gray-600 text-sm">We adapt quickly to changing requirements, ensuring fast delivery without compromising quality.</p>
                                 </div>
                             </li>
@@ -170,7 +170,7 @@ export default function Home({ products, events }) {
                                     <FontAwesomeIcon icon={faLaptopCode} className="text-xl" />
                                 </div>
                                 <div>
-                                    <h4 className="text-lg font-bold text-gray-900 mb-1">Modern Tech Stack</h4>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-1">Modern Tech Stack</h3>
                                     <p className="text-gray-600 text-sm">Utilizing the latest frameworks and cloud infrastructure for maximum performance and security.</p>
                                 </div>
                             </li>
@@ -203,26 +203,26 @@ export default function Home({ products, events }) {
             </section>
 
             {/* Impact Section */}
-            <section className="py-24 px-6 bg-blue-600 text-white relative overflow-hidden">
+            <section className="py-24 px-6 bg-blue-700 text-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[30rem] h-[30rem] bg-white opacity-10 rounded-sm blur-3xl -translate-y-1/2 translate-x-1/4"></div>
                 <div className="absolute bottom-0 left-0 w-[30rem] h-[30rem] bg-black opacity-10 rounded-sm blur-3xl translate-y-1/2 -translate-x-1/4"></div>
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-blue-500/50">
                         <div className="px-4">
-                            <div className="text-gr-2xl font-black mb-2">150<span className="text-blue-300">+</span></div>
-                            <div className="text-blue-100 font-medium text-gr-base">Projects Delivered</div>
+                            <div className="text-gr-2xl font-black mb-2">150<span className="text-white">+</span></div>
+                            <div className="text-white font-medium text-gr-base">Projects Delivered</div>
                         </div>
                         <div className="px-4">
-                            <div className="text-gr-2xl font-black mb-2">98<span className="text-blue-300">%</span></div>
-                            <div className="text-blue-100 font-medium text-gr-base">Client Satisfaction</div>
+                            <div className="text-gr-2xl font-black mb-2">98<span className="text-white">%</span></div>
+                            <div className="text-white font-medium text-gr-base">Client Satisfaction</div>
                         </div>
                         <div className="px-4">
-                            <div className="text-gr-2xl font-black mb-2">5<span className="text-blue-300">+</span></div>
-                            <div className="text-blue-100 font-medium text-gr-base">Years Experience</div>
+                            <div className="text-gr-2xl font-black mb-2">5<span className="text-white">+</span></div>
+                            <div className="text-white font-medium text-gr-base">Years Experience</div>
                         </div>
                         <div className="px-4 border-transparent md:border-blue-500/50">
-                            <div className="text-gr-2xl font-black mb-2">24<span className="text-blue-300">/7</span></div>
-                            <div className="text-blue-100 font-medium text-gr-base">Support Available</div>
+                            <div className="text-gr-2xl font-black mb-2">24<span className="text-white">/7</span></div>
+                            <div className="text-white font-medium text-gr-base">Support Available</div>
                         </div>
                     </div>
                 </div>

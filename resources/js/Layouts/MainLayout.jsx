@@ -118,10 +118,10 @@ export default function MainLayout({ children, title, description }) {
                     <div className="col-span-1 md:col-span-2">
                         <img src="/navyralogo.webp" alt="Navyra Studio Logo" className="h-8 object-contain brightness-0 invert mb-6" />
                         <p className="mb-6 text-gray-400 text-gr-base leading-relaxed max-w-sm">Navyra Studio provides premium digital solutions. We combine elegant design with robust engineering to accelerate your business.</p>
-                        <p className="text-gray-500 text-gr-xs">&copy; {new Date().getFullYear()} Navyra Studio. All Rights Reserved.</p>
+                        <p className="text-gray-400 text-gr-xs">&copy; {new Date().getFullYear()} Navyra Studio. All Rights Reserved.</p>
                     </div>
                     <div>
-                        <h4 className="font-semibold text-gr-lg mb-6">Company</h4>
+                        <h3 className="font-semibold text-gr-lg mb-6">Company</h3>
                         <ul className="space-y-3 text-gr-base text-gray-400">
                             <li><Link href="/" className="hover:text-blue-400 transition-colors">Home</Link></li>
                             <li><Link href="/about" className="hover:text-blue-400 transition-colors">About Us</Link></li>
@@ -130,7 +130,7 @@ export default function MainLayout({ children, title, description }) {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="font-semibold text-gr-lg mb-6">Legal</h4>
+                        <h3 className="font-semibold text-gr-lg mb-6">Legal</h3>
                         <ul className="space-y-3 text-gr-base text-gray-400">
                             <li><Link href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</Link></li>
                             <li><Link href="#" className="hover:text-blue-400 transition-colors">Terms of Service</Link></li>
