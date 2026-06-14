@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 
 export default function MainLayout({ children, title, description }) {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -102,10 +103,36 @@ export default function MainLayout({ children, title, description }) {
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <button aria-label="Open main menu" className={`md:hidden transition-colors ${isScrolled ? 'text-gray-900 hover:text-blue-600' : 'text-white hover:text-gray-200'}`}>
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    <button 
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-label={isMobileMenuOpen ? "Close main menu" : "Open main menu"} 
+                        className={`md:hidden transition-colors ${isScrolled ? 'text-gray-900 hover:text-blue-600' : 'text-white hover:text-gray-200'}`}
+                    >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                            {isMobileMenuOpen ? (
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            ) : (
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                            )}
+                        </svg>
                     </button>
                 </nav>
+
+                {/* Mobile Menu Dropdown */}
+                {isMobileMenuOpen && (
+                    <div className="md:hidden bg-white border-t border-gray-100 shadow-lg absolute top-full left-0 w-full py-4 px-6 flex flex-col space-y-4">
+                        <Link href="/" className="text-gray-800 font-semibold hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
+                        <Link href="/about" className="text-gray-800 font-semibold hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+                        <Link href="/products" className="text-gray-800 font-semibold hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Services</Link>
+                        <Link href="/events" className="text-gray-800 font-semibold hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Events</Link>
+                        <Link href="/contact" className="text-gray-800 font-semibold hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+                        <div className="pt-4 border-t border-gray-100">
+                            <Link href="/login" className="w-full text-center block px-6 py-2.5 rounded font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-sm" onClick={() => setIsMobileMenuOpen(false)}>
+                                <FontAwesomeIcon icon={faRightToBracket} className="mr-2" /> Login
+                            </Link>
+                        </div>
+                    </div>
+                )}
             </header>
 
             <main className="min-h-screen">
