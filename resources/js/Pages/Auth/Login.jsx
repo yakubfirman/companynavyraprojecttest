@@ -26,7 +26,6 @@ export default function Login({ status, canResetPassword }) {
             <Head>
                 <title>Member Login | Navyra Studio</title>
                 <meta name="description" content="Masuk ke dashboard member Navyra Studio untuk mengelola layanan Anda." />
-                <meta name="robots" content="noindex" />
             </Head>
 
             {status && (

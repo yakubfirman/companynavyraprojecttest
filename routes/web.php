@@ -25,12 +25,13 @@ Route::get('/sitemap.xml', function () {
     <url><loc>http://navyrastudio.smartsense.my.id/products</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
     <url><loc>http://navyrastudio.smartsense.my.id/events</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
     <url><loc>http://navyrastudio.smartsense.my.id/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>http://navyrastudio.smartsense.my.id/login</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>';
     return response($xml, 200)->header('Content-Type', 'text/xml');
 });
 
 Route::get('/robots.txt', function () {
-    $txt = "User-agent: *\nDisallow: /login\nDisallow: /register\nDisallow: /dashboard\nSitemap: http://navyrastudio.smartsense.my.id/sitemap.xml\n";
+    $txt = "User-agent: *\nDisallow: /register\nDisallow: /dashboard\nSitemap: http://navyrastudio.smartsense.my.id/sitemap.xml\n";
     return response($txt, 200)->header('Content-Type', 'text/plain');
 });
 

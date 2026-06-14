@@ -18,21 +18,22 @@ export default function MainLayout({ children, title, description }) {
     return (
         <div className="min-h-screen bg-gray-50 font-sans text-gray-800 selection:bg-blue-600 selection:text-white">
             <Head>
-                <title>{title ? `${title} | Navyra Studio` : 'Navyra Studio'}</title>
-                <meta name="description" content={description || 'Navyra Studio - Solusi Digital Profesional & Inovatif'} />
+                <title>{title ? `${title} | Navyra Studio` : 'Navyra Studio - Solusi Digital Profesional'}</title>
+                <meta name="description" content={description || 'Navyra Studio (Navyra) adalah agensi digital terdepan yang menghadirkan solusi teknologi inovatif untuk website, aplikasi, dan enterprise.'} />
+                <meta name="keywords" content="Navyra, Navyra Studio, Solusi Digital, Agensi Digital, Web Development" />
                 
                 {/* Open Graph / Facebook */}
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="http://navyrastudio.smartsense.my.id/" />
-                <meta property="og:title" content={title ? `${title} | Navyra Studio` : 'Navyra Studio'} />
-                <meta property="og:description" content={description || 'Navyra Studio - Solusi Digital Profesional & Inovatif'} />
+                <meta property="og:title" content={title ? `${title} | Navyra Studio` : 'Navyra Studio - Solusi Digital Profesional'} />
+                <meta property="og:description" content={description || 'Navyra Studio (Navyra) adalah agensi digital terdepan yang menghadirkan solusi teknologi inovatif untuk website, aplikasi, dan enterprise.'} />
                 <meta property="og:image" content="http://navyrastudio.smartsense.my.id/hero-bg.png" />
 
                 {/* Twitter */}
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content="http://navyrastudio.smartsense.my.id/" />
-                <meta property="twitter:title" content={title ? `${title} | Navyra Studio` : 'Navyra Studio'} />
-                <meta property="twitter:description" content={description || 'Navyra Studio - Solusi Digital Profesional & Inovatif'} />
+                <meta property="twitter:title" content={title ? `${title} | Navyra Studio` : 'Navyra Studio - Solusi Digital Profesional'} />
+                <meta property="twitter:description" content={description || 'Navyra Studio (Navyra) adalah agensi digital terdepan yang menghadirkan solusi teknologi inovatif untuk website, aplikasi, dan enterprise.'} />
                 <meta property="twitter:image" content="http://navyrastudio.smartsense.my.id/hero-bg.png" />
                 
                 {/* Canonical */}
@@ -45,9 +46,10 @@ export default function MainLayout({ children, title, description }) {
                         "@context": "https://schema.org",
                         "@type": "Organization",
                         "name": "Navyra Studio",
+                        "alternateName": "Navyra",
                         "url": "http://navyrastudio.smartsense.my.id/",
                         "logo": "http://navyrastudio.smartsense.my.id/navyralogo.webp",
-                        "description": "Navyra Studio provides top-tier digital technology solutions.",
+                        "description": "Navyra Studio (Navyra) provides top-tier digital technology solutions.",
                         "contactPoint": {
                             "@type": "ContactPoint",
                             "telephone": "+62-800-123-456",

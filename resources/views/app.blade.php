@@ -3,8 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Google Search Console Verification -->
+        <meta name="google-site-verification" content="J3am4PM4BwjVLJp-dctSlhyynmkjLliLDgXjcQ19pOI" />
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <title inertia>{{ config('app.name', 'Navyra Studio') }}</title>
         
         <!-- Favicon -->
         <link rel="icon" type="image/webp" href="/icon.webp">
