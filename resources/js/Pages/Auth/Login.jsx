@@ -92,15 +92,6 @@ export default function Login({ status, canResetPassword }) {
                     <PrimaryButton className="w-full" disabled={processing}>
                         Log in Securely
                     </PrimaryButton>
-
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="rounded-sm text-sm text-blue-600 font-semibold hover:text-blue-800 hover:underline transition-colors focus:outline-none"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
                 </div>
             </form>
         </GuestLayout>
