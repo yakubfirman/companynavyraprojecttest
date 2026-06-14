@@ -27,8 +27,25 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'nullable|numeric|min:0',
-            'image' => 'nullable|url|max:2048',
+            'image' => 'nullable|image|max:2048',
         ]);
+
+        if ($request->hasFile('image')) {
+            $imageFile = $request->file('image');
+            $filename = time() . '_' . uniqid() . '.webp';
+            
+            $manager = new \Intervention\Image\ImageManager(new \Intervention\Image\Drivers\Gd\Driver());
+            $image = $manager->read($imageFile);
+            
+            $path = storage_path('app/public/products');
+            if (!file_exists($path)) {
+                mkdir($path, 0755, true);
+            }
+            
+            $image->toWebp(80)->save($path . '/' . $filename);
+            
+            $validated['image'] = '/storage/products/' . $filename;
+        }
 
         Product::create($validated);
 
@@ -48,8 +65,35 @@ class ProductController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'nullable|numeric|min:0',
-            'image' => 'nullable|url|max:2048',
+            'image' => 'nullable|image|max:2048',
         ]);
+
+        if ($request->hasFile('image')) {
+            $imageFile = $request->file('image');
+            $filename = time() . '_' . uniqid() . '.webp';
+            
+            $manager = new \Intervention\Image\ImageManager(new \Intervention\Image\Drivers\Gd\Driver());
+            $image = $manager->read($imageFile);
+            
+            $path = storage_path('app/public/products');
+            if (!file_exists($path)) {
+                mkdir($path, 0755, true);
+            }
+            
+            $image->toWebp(80)->save($path . '/' . $filename);
+            
+            // Delete old image if exists
+            if ($product->image && str_starts_with($product->image, '/storage/products/')) {
+                $oldPath = storage_path('app/public/products/' . basename($product->image));
+                if (file_exists($oldPath)) {
+                    unlink($oldPath);
+                }
+            }
+            
+            $validated['image'] = '/storage/products/' . $filename;
+        } else {
+            unset($validated['image']);
+        }
 
         $product->update($validated);
 
@@ -58,6 +102,12 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
+        if ($product->image && str_starts_with($product->image, '/storage/products/')) {
+            $oldPath = storage_path('app/public/products/' . basename($product->image));
+            if (file_exists($oldPath)) {
+                unlink($oldPath);
+            }
+        }
         $product->delete();
         return redirect()->back()->with('success', 'Product deleted successfully.');
     }

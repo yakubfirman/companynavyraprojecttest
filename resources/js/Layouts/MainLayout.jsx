@@ -37,6 +37,45 @@ export default function MainLayout({ children, title, description }) {
                 
                 {/* Canonical */}
                 <link rel="canonical" href="http://navyrastudio.smartsense.my.id/" />
+
+                {/* JSON-LD for AEO / GEO / AIO */}
+                <script type="application/ld+json">
+                    {`
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "Organization",
+                        "name": "Navyra Studio",
+                        "url": "http://navyrastudio.smartsense.my.id/",
+                        "logo": "http://navyrastudio.smartsense.my.id/navyralogo.webp",
+                        "description": "Navyra Studio provides top-tier digital technology solutions.",
+                        "contactPoint": {
+                            "@type": "ContactPoint",
+                            "telephone": "+62-800-123-456",
+                            "contactType": "Customer Service"
+                        },
+                        "sameAs": [
+                            "https://www.linkedin.com/company/navyrastudio",
+                            "https://twitter.com/navyrastudio",
+                            "https://www.instagram.com/navyrastudio"
+                        ]
+                    }
+                    `}
+                </script>
+                <script type="application/ld+json">
+                    {`
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "WebSite",
+                        "name": "Navyra Studio",
+                        "url": "http://navyrastudio.smartsense.my.id/",
+                        "potentialAction": {
+                            "@type": "SearchAction",
+                            "target": "http://navyrastudio.smartsense.my.id/search?q={search_term_string}",
+                            "query-input": "required name=search_term_string"
+                        }
+                    }
+                    `}
+                </script>
             </Head>
 
             <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>

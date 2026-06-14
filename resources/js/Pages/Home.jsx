@@ -1,15 +1,50 @@
 import MainLayout from '@/Layouts/MainLayout';
-import { Link } from '@inertiajs/react';
+import { Link, Head } from '@inertiajs/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRocket, faArrowRight, faHashtag, faQuoteLeft, faCheckCircle, faGlobe, faMobileScreen, faLaptopCode, faHeadset, faComments } from '@fortawesome/free-solid-svg-icons';
+import { faRocket, faArrowRight, faHashtag, faQuoteLeft, faCheckCircle, faGlobe, faMobileScreen, faLaptopCode, faHeadset, faComments, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 
 export default function Home({ products, events }) {
+    const faqs = [
+        {
+            question: "What services does Navyra Studio offer?",
+            answer: "We provide a comprehensive suite of digital solutions including enterprise software development, modern web applications, mobile app development, UI/UX design, and digital transformation consulting."
+        },
+        {
+            question: "How long does it take to complete a project?",
+            answer: "Project timelines vary depending on complexity and scope. A standard corporate website might take 2-4 weeks, while a full-scale enterprise web application can take 3-6 months. We utilize agile methodology to deliver MVPs quickly."
+        },
+        {
+            question: "Do you provide post-launch maintenance and support?",
+            answer: "Yes! We offer 24/7 dedicated support, SLA-backed maintenance, security updates, and performance optimization to ensure your digital products run flawlessly post-launch."
+        },
+        {
+            question: "What technologies do you specialize in?",
+            answer: "Our core stack includes Laravel, React, Next.js, Node.js, and Tailwind CSS. We also specialize in cloud infrastructure deployment on AWS and Google Cloud for highly scalable architectures."
+        }
+    ];
+
     return (
         <MainLayout 
             title="Innovative Digital Solutions" 
             description="Navyra Studio provides top-tier digital technology solutions. Explore our latest products, services, and events."
         >
+            <Head>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": faqs.map(faq => ({
+                            "@type": "Question",
+                            "name": faq.question,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": faq.answer
+                            }
+                        }))
+                    })}
+                </script>
+            </Head>
             {/* Professional Hero Section */}
             <section className="relative min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden">
                 <div className="absolute inset-0 z-0">
@@ -194,33 +229,69 @@ export default function Home({ products, events }) {
             </section>
 
             {/* Professional Testimonials */}
-            <section className="py-32 px-6 bg-white relative overflow-hidden">
-                <FontAwesomeIcon icon={faQuoteLeft} className="absolute top-10 left-10 text-gray-50 text-[20rem] -z-0 transform -rotate-12 opacity-50" />
+            <section className="py-20 px-6 bg-white relative overflow-hidden">
+                <FontAwesomeIcon icon={faQuoteLeft} className="absolute top-4 left-4 md:top-10 md:left-10 text-gray-50 text-[10rem] md:text-[14rem] -z-0 transform -rotate-12 opacity-50" />
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="max-w-4xl mx-auto text-center relative z-10"
+                    className="max-w-3xl mx-auto text-center relative z-10"
                 >
-                    <div className="mb-12 flex justify-center">
-                        <div className="flex gap-1 text-yellow-400 text-xl">
+                    <div className="mb-8 flex justify-center">
+                        <div className="flex gap-1 text-yellow-400 text-lg">
                             {[1, 2, 3, 4, 5].map(star => <span key={star}>★</span>)}
                         </div>
                     </div>
-                    <p className="text-gr-lg md:text-gr-xl font-medium leading-relaxed text-gray-800 mb-12">
+                    <p className="text-base md:text-gr-lg font-medium leading-relaxed text-gray-800 mb-10">
                         "Navyra Studio demonstrated exceptional professionalism and technical expertise. They delivered our enterprise software ahead of schedule with flawless execution. Their attention to detail and proactive communication made them the perfect technology partner."
                     </p>
-                    <div className="inline-flex items-center text-left bg-gray-50 pr-8 pr-8 rounded-sm border border-gray-100 shadow-sm p-2">
-                        <div className="w-14 h-14 bg-white rounded-sm mr-4 overflow-hidden border border-gray-200 shadow-sm">
-                            <div className="w-full h-full bg-blue-50 flex items-center justify-center text-blue-600 font-bold text-lg">BS</div>
+                    <div className="inline-flex items-center text-left bg-gray-50 pr-6 rounded-sm border border-gray-100 shadow-sm p-1.5">
+                        <div className="w-12 h-12 bg-white rounded-sm mr-4 overflow-hidden border border-gray-200 shadow-sm">
+                            <div className="w-full h-full bg-blue-50 flex items-center justify-center text-blue-600 font-bold">BS</div>
                         </div>
                         <div>
-                            <div className="font-bold text-gray-900">Budi Santoso</div>
-                            <div className="text-gray-500 text-sm">CEO, TechIndo Enterprise</div>
+                            <div className="font-bold text-sm text-gray-900">Budi Santoso</div>
+                            <div className="text-gray-500 text-xs">CEO, TechIndo</div>
                         </div>
                     </div>
                 </motion.div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-24 px-6 bg-white border-t border-gray-100">
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-16">
+                        <div className="inline-block bg-blue-100 text-blue-700 font-bold px-4 py-1.5 rounded-sm mb-6 border border-blue-200 text-sm tracking-wide">
+                            Knowledge Base
+                        </div>
+                        <h2 className="text-gr-xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                        <p className="text-gr-md text-gray-600">Everything you need to know about partnering with Navyra Studio.</p>
+                    </div>
+
+                    <div className="space-y-4">
+                        {faqs.map((faq, index) => (
+                            <motion.details 
+                                key={index}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: index * 0.1 }}
+                                className="group bg-gray-50 border border-gray-200 rounded-sm overflow-hidden [&_summary::-webkit-details-marker]:hidden"
+                            >
+                                <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 font-bold text-gray-900 hover:text-blue-600 transition-colors">
+                                    <h3 className="text-gr-base md:text-gr-lg">{faq.question}</h3>
+                                    <span className="shrink-0 rounded-sm bg-white p-1.5 text-gray-900 border border-gray-200 shadow-sm group-open:-rotate-180 transition-transform duration-300">
+                                        <FontAwesomeIcon icon={faChevronDown} className="w-4 h-4" />
+                                    </span>
+                                </summary>
+                                <div className="px-6 pb-6 pt-0 leading-relaxed text-gray-600 text-sm md:text-gr-base">
+                                    {faq.answer}
+                                </div>
+                            </motion.details>
+                        ))}
+                    </div>
+                </div>
             </section>
 
             {/* Latest Events */}
